@@ -36,6 +36,7 @@ public class MainActivityViewModel extends AndroidViewModel {
     public void autenticar(String mail, String pass){
         Usuario usuario= apiClient.login(context,mail,pass);
         if (usuario != null){
+            error.setValue("");
             Intent intent= new Intent(context, RegistroActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.putExtra("usuario",usuario);
