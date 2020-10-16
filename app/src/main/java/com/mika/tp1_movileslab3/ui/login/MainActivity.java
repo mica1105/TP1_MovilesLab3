@@ -44,9 +44,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 vm.autenticar(email.getText().toString(),password.getText().toString());
+                email.setText("");
+                password.setText("");
             }
         });
-
         registrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

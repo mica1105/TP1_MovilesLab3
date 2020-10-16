@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.mika.tp1_movileslab3.R;
 import com.mika.tp1_movileslab3.model.Usuario;
@@ -42,6 +43,12 @@ public class RegistroActivity extends AppCompatActivity {
                 password.setText(usuario.getPassword());
             }
         });
+        vm.getMensaje().observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG).show();
+            }
+        });
         guardar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -51,5 +58,11 @@ public class RegistroActivity extends AppCompatActivity {
          if(getIntent().getSerializableExtra("usuario") != null) {
             vm.mostrar();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        System.exit(0);
     }
 }
