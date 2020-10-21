@@ -55,9 +55,9 @@ public class RegistroActivity extends AppCompatActivity {
                     vm.registrar(dni.getText().toString(), apellido.getText().toString(), nombre.getText().toString(), email.getText().toString(), password.getText().toString());
                 }
         });
-         if(getIntent().getSerializableExtra("usuario") != null) {
-            vm.mostrar();
-        }
+
+        vm.mostrar((Usuario) getIntent().getSerializableExtra("usuario"));
+
     }
 
     @Override

@@ -48,8 +48,10 @@ public class RegistroViewModel extends AndroidViewModel {
         mensaje.setValue("El usuario fue guardado exitosamente");
     }
 
-    public void mostrar(){
-        Usuario u= apiClient.leer(context);
-        usuario.setValue(u);
+    public void mostrar(Usuario u){
+        if( u != null) {
+            u = apiClient.leer(context);
+            usuario.setValue(u);
+        }
     }
 }
